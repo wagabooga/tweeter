@@ -25,3 +25,10 @@ module.exports = function makeDataHelpers(db) {
 
   };
 }
+
+// How to use DataHelpers
+
+// let mydb = {} (declare database)
+// let dataHelpers = makeDataHelpers(mydb) (dataHelpers is created by makeDataHelpers and is stored as one big object)
+// dataHelpers.saveTweet(newtweet, cb) (here is how we access a savetweet function)
+// dataHelpers.getTweets(cb)
