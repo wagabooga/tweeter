@@ -1,0 +1,58 @@
+.tweet-container {
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+  display: flex;
+  border: 4px solid gray;
+  border-radius: 10px;
+}
+
+.astronaut-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.article-tweet-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-realname {
+  display: inline;
+  margin: 0;
+}
+
+.username {
+  margin: 0;
+}
+
+.tweet-content {
+  padding-left: 12px;
+}
+
+.tweet-content-span {
+  border-bottom: 4px solid gray;
+}
+
+.article-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.footer-date {
+  padding-left: 12px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.article-tweet-footer {
+  display: flex;
+  border-top: 4px solid gray;
+  justify-content: space-between;
+}
+
+.footer-icon-container {
+  padding-right: 12px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}

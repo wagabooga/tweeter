@@ -3,12 +3,17 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
+
 
 /*
  * Global layout stuff
@@ -21,17 +26,21 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- 
+
+
 /*90% of the width of its parent element
 center aligned to the body
 the same background colour as the <body> element
 */
- .container {
+
+.container {
   display: flex;
+  flex-direction: column;
   width: 90%;
   margin: auto;
   background-color: #f4f1ec;
- }
+}
