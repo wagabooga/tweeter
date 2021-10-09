@@ -1,0 +1,36 @@
+.inner-container {
+  display: flex;
+  margin: auto;
+  width: 90%;
+  margin-top: 15px;
+}
+#tweet-text {
+  line-height: 15px;
+  width: 100%;
+  resize: none;
+  background-color: #f4f1ec;
+  border-bottom: 4px solid gray;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+#button {
+  background-color: #6da1a3;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Bungee', cursive;
+}
+.submit-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet {
+  width: 100%;
+
+}

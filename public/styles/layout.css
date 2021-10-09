@@ -24,3 +24,14 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ 
+/*90% of the width of its parent element
+center aligned to the body
+the same background colour as the <body> element
+*/
+ .container {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  background-color: #f4f1ec;
+ }
