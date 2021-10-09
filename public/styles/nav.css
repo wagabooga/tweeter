@@ -11,6 +11,8 @@ nav {
   padding-bottom: 1.5em;
   font-family: 'Bungee', cursive;
   z-index: 1;
+  position: fixed;
+  top: 0;
 }
 
 .topRight {
