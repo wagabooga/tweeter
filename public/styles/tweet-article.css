@@ -61,3 +61,9 @@
   cursor: pointer;
   color: #6da1a3;
 }
+
+.error {
+  color: red;
+  font-weight: 800;
+  text-decoration: underline;
+}
