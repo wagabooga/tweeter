@@ -5,42 +5,13 @@
  */
 
 $(document).ready(function () {
-  const createTweetElement = function(tweetOBJ) {
-    const $tweet = $(`
-    <section class="tweet-container">
-      <article class="article-container">
-        <header class="article-tweet-header">
-          <div class="header-icon-container">
-          <img class="user-icon" src="${tweetOBJ.user.avatars}"></img>
-            <p class="user-realname">${tweetOBJ.user.name}</p>
-          </div>
-          <p class="username">${tweetOBJ.user.handle}</p>
-        </header>
-        <div class="tweet-content-container">
-          <p class="tweet-content">${tweetOBJ.content.text}</p>
-        </div>
-        <footer class="article-tweet-footer">
-          <p class="footer-date">${timeago.format(new Date(tweetOBJ.created_at))}</p>
-          <div class="footer-icon-container">
-            <i class="fas fa-flag flag-icon hover-icon"></i>
-            <i class="fas fa-retweet retweet-icon hover-icon"></i>
-            <i class="far fa-heart heart-icon hover-icon"></i>
-          </div>
-        </footer>
-      </article>
-    </section>
-    `)
-    return $tweet
-  };
 
+  $("#tweet-form").submit(function(event) {
+    event.preventDefault()
+    $.ajax('/tweets', { method: 'POST', data: $(this).serialize()} )
+    console.log("data:", $(this).serialize(), "event:", event)
+  })
 
-
-  const renderTweets = function(tweets) {
-    for (let tweet of tweets){
-      let $tweet = createTweetElement(tweet)
-      $('.container').append($tweet)
-    }
-  }
 
 
   const data = [
@@ -79,5 +50,40 @@ $(document).ready(function () {
       "created_at": 1461113959088
     }
   ]
+  const createTweetElement = function(tweetOBJ) {
+    const $tweet = $(`
+    <section class="tweet-container">
+      <article class="article-container">
+        <header class="article-tweet-header">
+          <div class="header-icon-container">
+          <img class="user-icon" src="${tweetOBJ.user.avatars}"></img>
+            <p class="user-realname">${tweetOBJ.user.name}</p>
+          </div>
+          <p class="username">${tweetOBJ.user.handle}</p>
+        </header>
+        <div class="tweet-content-container">
+          <p class="tweet-content">${tweetOBJ.content.text}</p>
+        </div>
+        <footer class="article-tweet-footer">
+          <p class="footer-date">${timeago.format(new Date(tweetOBJ.created_at))}</p>
+          <div class="footer-icon-container">
+            <i class="fas fa-flag flag-icon hover-icon"></i>
+            <i class="fas fa-retweet retweet-icon hover-icon"></i>
+            <i class="far fa-heart heart-icon hover-icon"></i>
+          </div>
+        </footer>
+      </article>
+    </section>
+    `)
+    return $tweet
+  };
+
+  const renderTweets = function(tweets) {
+    for (let tweet of tweets){
+      let $tweet = createTweetElement(tweet)
+      $('.container').append($tweet)
+    }
+  }
+
   renderTweets(data);
 })
