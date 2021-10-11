@@ -45,7 +45,7 @@ $(document).ready(function () {
           <p class="username">${tweetOBJ.user.handle}</p>
         </header>
         <div class="tweet-content-container">
-          <p class="tweet-content">${tweetOBJ.content.text}</p>
+          <p class="tweet-content">${escape(tweetOBJ.content.text)}</p>
         </div>
         <footer class="article-tweet-footer">
           <p class="footer-date">${timeago.format(new Date(tweetOBJ.created_at))}</p>
@@ -59,6 +59,11 @@ $(document).ready(function () {
     </section>
     `)
     return $tweet
+  };
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
   // render all tweets by looping through data
   const renderTweets = function (tweets) {
