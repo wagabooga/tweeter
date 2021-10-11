@@ -5,11 +5,14 @@ $(document).ready(function() {
     $(".counter").text(charactersRemaining)
     if (charactersRemaining < 0) {
       $(".counter").addClass("error")
+      $("#ErrorMsgBox").removeClass("notVisible")
     } else {
       $(".counter").removeClass("error")
+      $("#ErrorMsgBox").addClass("notVisible")
     }
-    
+
 
     console.log(charactersRemaining)
   });
 });
+
