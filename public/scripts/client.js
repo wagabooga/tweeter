@@ -3,54 +3,37 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+// helper validation function
+
+
 
 $(document).ready(function () {
 
-  $("#tweet-form").submit(function(event) {
+  $("#tweet-form").submit(function (event) {
     event.preventDefault()
-    $.ajax('/tweets', { method: 'POST', data: $(this).serialize()} )
-    console.log("data:", $(this).serialize(), "event:", event)
+    let tweetData = $(this).serialize()
+
+    if (tweetData === null || tweetData.slice(5).length === 0 || tweetData.length > 140 ){
+      alert("ERROR")
+      return 
+    }
+
+    $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
+      .then((res) => { loadTweets() })
   })
 
-
-
-  const data = [
-    {
-      "user": {
-        "name": "matt",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@wagabooga"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
+  const loadTweets = function () {
+    $.ajax('/tweets', { method: 'GET', dataType: "json" }).then((res) => {
+      renderTweets(res)
     }
-  ]
-  const createTweetElement = function(tweetOBJ) {
+    )
+
+  }
+  loadTweets()
+  // hard coded data
+
+  // section boiler-plate
+  const createTweetElement = function (tweetOBJ) {
     const $tweet = $(`
     <section class="tweet-container">
       <article class="article-container">
@@ -77,13 +60,11 @@ $(document).ready(function () {
     `)
     return $tweet
   };
-
-  const renderTweets = function(tweets) {
-    for (let tweet of tweets){
+  // render all tweets by looping through data
+  const renderTweets = function (tweets) {
+    for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet)
-      $('.container').append($tweet)
+      $('.container').prepend($tweet)
     }
   }
-
-  renderTweets(data);
 })
