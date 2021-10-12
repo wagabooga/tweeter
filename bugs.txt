@@ -1,0 +1,9 @@
+2 bugs left add shadow when overlapping with a s3lect tweet
+
+fix text going outside of box
+
+responsive design - breakpoint at 1024px (use flex-direction?)
+
+When a user submits a valid tweet, the list of tweets is refreshed (displaying the new tweet), the Compose Tweet textarea is cleared, and the Character Counter is reset (to 140)
+
+fix bug tweets getting pushed to top and bottom

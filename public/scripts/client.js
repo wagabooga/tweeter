@@ -35,7 +35,7 @@ $(document).ready(function () {
   // section boiler-plate
   const createTweetElement = function (tweetOBJ) {
     const $tweet = $(`
-    <section class="tweet-container">
+    <section class="tweet-container hovernow">
       <article class="article-container">
         <header class="article-tweet-header">
           <div class="header-icon-container">
