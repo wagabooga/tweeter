@@ -11,15 +11,17 @@ $(document).ready(function () {
 
   $("#tweet-form").submit(function (event) {
     event.preventDefault()
-    let tweetData = $(this).serialize()
-
-    if (tweetData === null || tweetData.slice(5).length === 0 || tweetData.length > 140 ){
+    let tweetData = $("#tweet-text").val()
+    console.log("tweetData:",tweetData)
+    if (tweetData.length === 0 || tweetData.length > 140 ){
       alert("ERROR")
       return 
     }
 
     $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
       .then((res) => { loadTweets(true) })
+      $("#counter").text(140)
+      $("#tweet-text").val("")
   })
 
   const loadTweets = function (isSingleTweet) {
