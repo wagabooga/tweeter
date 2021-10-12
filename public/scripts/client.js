@@ -19,12 +19,12 @@ $(document).ready(function () {
     }
 
     $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
-      .then((res) => { loadTweets() })
+      .then((res) => { loadTweets(true) })
   })
 
-  const loadTweets = function () {
+  const loadTweets = function (isSingleTweet) {
     $.ajax('/tweets', { method: 'GET', dataType: "json" }).then((res) => {
-      renderTweets(res)
+      renderTweets(res, isSingleTweet)
     }
     )
 
@@ -66,10 +66,18 @@ $(document).ready(function () {
     return div.innerHTML;
   };
   // render all tweets by looping through data
-  const renderTweets = function (tweets) {
-    for (let tweet of tweets) {
-      let $tweet = createTweetElement(tweet)
-      $('.container').prepend($tweet)
-    }
+  const renderTweets = function (tweets, isSingleTweet) {
+    // for (let tweet of tweets) {
+      if (isSingleTweet){
+        let $tweet = createTweetElement(tweets[tweets.length-1])
+        $('.container').prepend($tweet)
+      }
+      else {
+        for (let tweet of tweets) {
+          let $tweet = createTweetElement(tweet)
+        $('.container').prepend($tweet)
+        }
+      }
+    // }
   }
 })
