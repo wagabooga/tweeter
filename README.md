@@ -10,9 +10,9 @@ In the future I wish to add the following features
 - Customizable Profiles
 
 ## Screenshots
-!["Tweeter_In_Action"](https://github.com/wagabooga/tweeter/blob/master/docs/TweeterInAction.png?raw=true)
-!["Tweeter_Mobile"](https://github.com/wagabooga/tweeter/blob/master/docs/tweetMobile.png?raw=true)
 !["Tweeter_Fullscreen"](https://github.com/wagabooga/tweeter/blob/master/docs/tweeterFullscreen.png?raw=true)
+!["Tweeter_Mobile"](https://github.com/wagabooga/tweeter/blob/master/docs/tweetMobile.png?raw=true)
+!["Tweeter_In_Action"](https://github.com/wagabooga/tweeter/blob/master/docs/TweeterInAction.png?raw=true)
 
 
 ## Getting Started
