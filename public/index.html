@@ -58,25 +58,27 @@
   </header>
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <!-- On Error throw box above -->
     <div id="ErrorMsgBox" class="notVisible">
       <p>Too many characters</p>
     </div>
+    <!-- tweet-box-header used to keep tweet form at the top above tweets -->
     <div class="tweet-box-header">
-    <section class="new-tweet">
-      <form method="POST" action="/tweets" id="tweet-form">
-        <div class="text-input-container">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-        </div>
-        <div class="submit-container">
-          <button type="submit" id="button">Tweet</button>
-          <output name="counter" class="counter" id="counter" for="tweet-text">140</output>
-        </div>
-      </form>
+      <section class="new-tweet">
+        <form method="POST" action="/tweets" id="tweet-form">
+          <div class="text-input-container">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+          </div>
+          <div class="submit-container">
+            <button type="submit" id="button">Tweet</button>
+            <output name="counter" class="counter" id="counter" for="tweet-text">140</output>
+          </div>
+        </form>
     </div>
-  </div>
+    </div>
     </section>
+    <!-- this section is where we import our boilerplate -->
     <section class="tweet-area">
-
     </section>
   </main>
 </body>

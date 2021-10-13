@@ -12,16 +12,17 @@ $(document).ready(function () {
   $("#tweet-form").submit(function (event) {
     event.preventDefault()
     let tweetData = $("#tweet-text").val()
-    console.log("tweetData:",tweetData)
-    if (tweetData.length === 0 || tweetData.length > 140 ){
-      alert("ERROR")
-      return 
+    // check if invalid tweet
+    if (tweetData.length === 0 || tweetData.length > 140) {
+      alert("Invalid Tweet, please try again.")
+      return
     }
 
     $.ajax('/tweets', { method: 'POST', data: $(this).serialize() })
       .then((res) => { loadTweets(true) })
-      $("#counter").text(140)
-      $("#tweet-text").val("")
+    // reset counter and text fields
+    $("#counter").text(140)
+    $("#tweet-text").val("")
   })
 
   const loadTweets = function (isSingleTweet) {
@@ -29,10 +30,8 @@ $(document).ready(function () {
       renderTweets(res, isSingleTweet)
     }
     )
-
   }
   loadTweets()
-  // hard coded data
 
   // section boiler-plate
   const createTweetElement = function (tweetOBJ) {
@@ -62,24 +61,24 @@ $(document).ready(function () {
     `)
     return $tweet
   };
+  // stop scripts
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-  // render all tweets by looping through data
+// render tweets, isSingleTweet used to render only 1 tweet if not inital load
   const renderTweets = function (tweets, isSingleTweet) {
-    // for (let tweet of tweets) {
-      if (isSingleTweet){
-        let $tweet = createTweetElement(tweets[tweets.length-1])
+    if (isSingleTweet) {
+      let $tweet = createTweetElement(tweets[tweets.length - 1])
+      // prepend to push first
+      $('.tweet-area').prepend($tweet)
+    }
+    else {
+      for (let tweet of tweets) {
+        let $tweet = createTweetElement(tweet)
         $('.tweet-area').prepend($tweet)
       }
-      else {
-        for (let tweet of tweets) {
-          let $tweet = createTweetElement(tweet)
-        $('.tweet-area').prepend($tweet)
-        }
-      }
-    // }
+    }
   }
 })

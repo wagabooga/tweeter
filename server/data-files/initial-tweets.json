@@ -1,24 +1,13 @@
 [
   {
     "user": {
-      "name": "Newton",
+      "name": "Matthew",
       "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+      "handle": "@Wagabooga"
     },
     "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
+      "text": "Demonstrating inital tweet in local files"
     },
-    "created_at": 1633911946632
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1633998346632
+    "created_at": 1634000044324
   }
 ]

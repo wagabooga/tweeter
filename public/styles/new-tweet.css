@@ -1,10 +1,4 @@
-.inner-container {
-  display: flex;
-  margin: auto;
-  width: 90%;
-  margin-top: 15px;
-}
-
+/* ------------------------- new-tweet ------------------------ */
 #tweet-text {
   width: 100%;
   resize: none;
@@ -43,12 +37,12 @@
   margin-top: 30px;
   display: flex;
 }
+
+/* ------------------------- mobile ------------------------ */
 @media (min-width: 1024px) {
   .container {
     display: flex;
     width: 65vw;
-    /* float: right; */
     margin-top: 120px;
-    /* position: relative; */
   }
 }

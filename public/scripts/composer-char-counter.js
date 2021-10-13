@@ -10,9 +10,6 @@ $(document).ready(function() {
       $(".counter").removeClass("error")
       $("#ErrorMsgBox").addClass("notVisible")
     }
-
-
-    console.log(charactersRemaining)
   });
 });
 
