@@ -72,12 +72,12 @@ $(document).ready(function () {
     // for (let tweet of tweets) {
       if (isSingleTweet){
         let $tweet = createTweetElement(tweets[tweets.length-1])
-        $('.container').prepend($tweet)
+        $('.tweet-area').prepend($tweet)
       }
       else {
         for (let tweet of tweets) {
           let $tweet = createTweetElement(tweet)
-        $('.container').prepend($tweet)
+        $('.tweet-area').prepend($tweet)
         }
       }
     // }
